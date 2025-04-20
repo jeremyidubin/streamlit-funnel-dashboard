@@ -100,8 +100,7 @@ with col1:
         texttemplate="%{value:,}<br>(%{percentPrevious:.0%})",
         textposition="inside",
         textfont=dict(size=16),
-        marker=dict(color="#00A376") ,
-        hovertemplate='%{label}<br>Count: %{value}<extra></extra>'
+        marker=dict(color="#00A376")
     ))
     st.plotly_chart(fig1, use_container_width=True)
 
@@ -113,7 +112,6 @@ with col2:
           texttemplate="%{value:,}<br>(%{percentPrevious:.0%})",
         textposition="inside",
         textfont=dict(size=16),
-        hovertemplate='%{label}<br>Count: %{value}<extra></extra>',
         marker=dict(color="#00303F") 
     ))
     st.plotly_chart(fig2, use_container_width=True)
