@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Set Streamlit page config
-st.set_page_config(page_title="MQL and SQL with filters", layout="wide")
+st.set_page_config(page_title="Dashlane-Branded Funnel Dashboard", layout="wide")
 
 # Load Google Sheet data
 @st.cache_data
@@ -86,31 +86,31 @@ sales_funnel["% of Previous"] = sales_funnel["Count"].pct_change().fillna(1).app
 sales_funnel["Label"] = sales_funnel.apply(lambda row: f"{row['Count']:,}\n{row['% of Previous']}", axis=1)
 
 # Layout and plotting
-st.title("📈 Enhanced Funnel Dashboard with Percentages")
-st.markdown("Visualize drop-offs across Marketing and Sales pipelines, including conversion percentages.")
+st.title("📈 Dashlane-Branded Funnel Dashboard")
+st.markdown("Visualize drop-offs across Marketing and Sales pipelines using Dashlane brand colors.")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Marketing Funnel: MQL → Sales Opportunity")
+    st.subheader("Marketing Funnel: MQL → Opportunity")
     fig1 = go.Figure(go.Funnel(
         y=mql_funnel["Stage"],
         x=mql_funnel["Count"],
         text=mql_funnel["Label"],
         textposition="inside",
         textfont=dict(size=16),
-        marker=dict(color="#00A376")
+        marker=dict(color="#00A376")  # Dashlane Green
     ))
     st.plotly_chart(fig1, use_container_width=True)
 
 with col2:
-    st.subheader("Sales Funnel: Sales Opportunity → Closed Won")
+    st.subheader("Sales Funnel: Opportunity → Closed Won")
     fig2 = go.Figure(go.Funnel(
         y=sales_funnel["Stage"],
         x=sales_funnel["Count"],
         text=sales_funnel["Label"],
         textposition="inside",
         textfont=dict(size=16),
-        marker=dict(color="#00303F")
+        marker=dict(color="#00303F")  # Dashlane Deep Blue
     ))
     st.plotly_chart(fig2, use_container_width=True)
