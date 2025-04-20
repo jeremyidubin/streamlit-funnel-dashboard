@@ -99,6 +99,7 @@ with col1:
         text=mql_funnel["Label"],
         textposition="inside",
         textfont=dict(size=16)
+        marker=dict(color="mediumseagreen")
     ))
     st.plotly_chart(fig1, use_container_width=True)
 
