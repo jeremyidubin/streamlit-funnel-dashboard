@@ -62,7 +62,7 @@ stage_3 = filtered_df["entered_stage_3"].sum()
 opps = filtered_df["converted_to_opportunity"].sum()
 
 mql_funnel = pd.DataFrame({
-    "Stage": ["MQLs", "Lead Stage 2", "Lead Stage 3", "Converted to Opportunity"],
+    "Stage": ["MQLs", "Lead Stage 2", "Lead Stage 3", "Converted to Sales Opportunity"],
     "Count": [mql_total, stage_2, stage_3, opps]
 })
 mql_funnel["% of Previous"] = mql_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"{x:.0%}")
