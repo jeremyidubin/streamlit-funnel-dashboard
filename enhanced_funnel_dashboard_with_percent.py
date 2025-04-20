@@ -74,20 +74,21 @@ opp_stage_2 = filtered_df["opp_stage_2"].sum()
 opp_stage_3 = filtered_df["opp_stage_3"].sum()
 opp_stage_4 = filtered_df["opp_stage_4"].sum()
 opp_stage_5 = filtered_df["opp_stage_5"].sum()
+converted_to_opportunity = filtered_df["Converted to Sales Opportunity"].sum()
 won = filtered_df["closed_won"].sum()
 
 sales_funnel = pd.DataFrame({
     "Stage": [
-        "Opportunity Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5", "Closed Won"
+        "Converted to Sales Opportunity","Opportunity Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5", "Closed Won"
     ],
-    "Count": [opp_stage_1, opp_stage_2, opp_stage_3, opp_stage_4, opp_stage_5, won]
+    "Count": converted_to_opportunity,[opp_stage_1, opp_stage_2, opp_stage_3, opp_stage_4, opp_stage_5, won]
 })
 sales_funnel["% of Previous"] = sales_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"{x:.0%}")
 sales_funnel["Label"] = sales_funnel.apply(lambda row: f"{row['Count']:,}\n({row['% of Previous']})", axis=1)
 
 # Layout and plotting
-st.title("📈 Dashlane-Branded Funnel Dashboard")
-st.markdown("Visualize drop-offs across Marketing and Sales pipelines using Dashlane brand colors.")
+st.title("📈 Branded Funnel Dashboard")
+st.markdown("Visualize drop-offs across Marketing and Sales pipelines")
 
 col1, col2 = st.columns(2)
 
