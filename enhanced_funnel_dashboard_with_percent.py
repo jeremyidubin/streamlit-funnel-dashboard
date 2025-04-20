@@ -96,7 +96,7 @@ with col1:
     fig1 = go.Figure(go.Funnel(
         y=mql_funnel["Stage"],
         x=mql_funnel["Count"],
-        text=mql_funnel["Label"],
+        texttemplate="%{value:,}<br>(%{percentPrevious:.0%})",
         textposition="inside",
         textfont=dict(size=16),
         marker=dict(color="#00A376")  # Dashlane Green
@@ -108,7 +108,7 @@ with col2:
     fig2 = go.Figure(go.Funnel(
         y=sales_funnel["Stage"],
         x=sales_funnel["Count"],
-        text=sales_funnel["Label"],
+          texttemplate="%{value:,}<br>(%{percentPrevious:.0%})",
         textposition="inside",
         textfont=dict(size=16),
         marker=dict(color="#00303F")  # Dashlane Deep Blue
