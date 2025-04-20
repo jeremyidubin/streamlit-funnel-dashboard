@@ -81,7 +81,7 @@ sales_funnel = pd.DataFrame({
     "Stage": [
         "Converted to Sales Opportunity","Opportunity Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5", "Closed Won"
     ],
-    "Count": converted_to_opportunity,[opp_stage_1, opp_stage_2, opp_stage_3, opp_stage_4, opp_stage_5, won]
+    "Count": [converted_to_opportunity,opp_stage_1, opp_stage_2, opp_stage_3, opp_stage_4, opp_stage_5, won]
 })
 sales_funnel["% of Previous"] = sales_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"{x:.0%}")
 sales_funnel["Label"] = sales_funnel.apply(lambda row: f"{row['Count']:,}\n({row['% of Previous']})", axis=1)
