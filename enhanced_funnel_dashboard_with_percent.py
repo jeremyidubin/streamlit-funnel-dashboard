@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Set Streamlit page config
-st.set_page_config(page_title="Enhanced Funnel Dashboard with US Filter", layout="wide")
+st.set_page_config(page_title="MQL and SQL with filters", layout="wide")
 
 # Load Google Sheet data
 @st.cache_data
