@@ -65,8 +65,8 @@ mql_funnel = pd.DataFrame({
     "Stage": ["MQLs", "Lead Stage 2", "Lead Stage 3", "Converted to Opportunity"],
     "Count": [mql_total, stage_2, stage_3, opps]
 })
-mql_funnel["% of Previous"] = mql_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"({x:.0%})")
-mql_funnel["Label"] = mql_funnel.apply(lambda row: f"{row['Count']:,}\n{row['% of Previous']}", axis=1)
+mql_funnel["% of Previous"] = mql_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"{x:.0%}")
+mql_funnel["Label"] = mql_funnel.apply(lambda row: f"{row['Count']:,}\n({row['% of Previous']})", axis=1)
 
 # Funnel 2: Sales Pipeline
 opp_stage_1 = filtered_df["opp_stage_1"].sum()
@@ -82,8 +82,8 @@ sales_funnel = pd.DataFrame({
     ],
     "Count": [opp_stage_1, opp_stage_2, opp_stage_3, opp_stage_4, opp_stage_5, won]
 })
-sales_funnel["% of Previous"] = sales_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"({x:.0%})")
-sales_funnel["Label"] = sales_funnel.apply(lambda row: f"{row['Count']:,}\n{row['% of Previous']}", axis=1)
+sales_funnel["% of Previous"] = sales_funnel["Count"].pct_change().fillna(1).apply(lambda x: f"{x:.0%}")
+sales_funnel["Label"] = sales_funnel.apply(lambda row: f"{row['Count']:,}\n({row['% of Previous']})", axis=1)
 
 # Layout and plotting
 st.title("📈 Dashlane-Branded Funnel Dashboard")
