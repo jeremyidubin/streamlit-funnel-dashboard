@@ -99,7 +99,7 @@ with col1:
         text=mql_funnel["Label"],
         textposition="inside",
         textfont=dict(size=16),
-        marker=dict(color="mediumseagreen")
+        marker=dict(color="#00A376")
     ))
     st.plotly_chart(fig1, use_container_width=True)
 
@@ -110,6 +110,7 @@ with col2:
         x=sales_funnel["Count"],
         text=sales_funnel["Label"],
         textposition="inside",
-        textfont=dict(size=16)
+        textfont=dict(size=16),
+        marker=dict(color="#00303F")
     ))
     st.plotly_chart(fig2, use_container_width=True)
