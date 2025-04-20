@@ -92,7 +92,7 @@ st.markdown("Visualize drop-offs across Marketing and Sales pipelines, including
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Marketing Funnel: MQL → Opportunity")
+    st.subheader("Marketing Funnel: MQL → Sales Opportunity")
     fig1 = go.Figure(go.Funnel(
         y=mql_funnel["Stage"],
         x=mql_funnel["Count"],
@@ -103,7 +103,7 @@ with col1:
     st.plotly_chart(fig1, use_container_width=True)
 
 with col2:
-    st.subheader("Sales Funnel: Opportunity → Closed Won")
+    st.subheader("Sales Funnel: Sales Opportunity → Closed Won")
     fig2 = go.Figure(go.Funnel(
         y=sales_funnel["Stage"],
         x=sales_funnel["Count"],
